@@ -42,6 +42,81 @@ type ListTipoResponse struct {
 	Data []schemas.TipoResponse `json:"data"`
 }
 
+type CreateTipoItemResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type DeleteTipoItemResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ShowTipoItemResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type UpdateTipoItemResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ListTipoItemsResponse struct {
+	baseResponse
+	Data []schemas.TipoItemResponse `json:"data"`
+}
+
+type CreateCardResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type DeleteCardResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ShowCardResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type UpdateCardResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ListCardsResponse struct {
+	baseResponse
+	Data []schemas.CardResponse `json:"data"`
+}
+
+type CreateUserResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type DeleteUserResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ShowUserResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type UpdateUserResponse struct {
+	baseResponse
+	Data int `json:"data"`
+}
+
+type ListUsersResponse struct {
+	baseResponse
+	Data []schemas.UserResponse `json:"data"`
+}
+
 func SendError(ctx *gin.Context, code int, msg string) {
 	ctx.Header("Content-Type", "application/json")
 	ctx.JSON(code, gin.H{

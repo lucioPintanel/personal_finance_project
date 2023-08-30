@@ -10,13 +10,19 @@ import (
 )
 
 func Initialize() {
+	//Inicializando logger e banco de dados
 	handler.InitializeHandler()
+
 	r := gin.Default()
 	basePath := "/api/v1"
 	docs.SwaggerInfo.BasePath = basePath
 	v1 := r.Group(basePath)
+
+	//Inicializando as rotas da API
 	initializeRouterTipo(v1)
 	initializeRouterTipoItem(v1)
+	initializeRouterUser(v1)
+	initializeRouterCard(v1)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
