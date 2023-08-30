@@ -1,3 +1,5 @@
+// swag init -g cmd/api-server/main.go
+
 package main
 
 import (
