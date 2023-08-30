@@ -16,6 +16,7 @@ func Initialize() {
 	docs.SwaggerInfo.BasePath = basePath
 	v1 := r.Group(basePath)
 	initializeRouterTipo(v1)
+	initializeRouterTipoItem(v1)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
