@@ -1,0 +1,219 @@
+definitions:
+  handler.CreateTipoRequest:
+    properties:
+      descricao:
+        type: string
+    type: object
+  handler.CreateTipoResponse:
+    properties:
+      data:
+        type: integer
+      mensagem:
+        type: string
+    type: object
+  handler.DeleteTipoResponse:
+    properties:
+      data:
+        type: integer
+      mensagem:
+        type: string
+    type: object
+  handler.ErrorResponse:
+    properties:
+      errorCode:
+        type: integer
+      mensagem:
+        type: string
+    type: object
+  handler.ListTipoResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/schemas.TipoResponse'
+        type: array
+      mensagem:
+        type: string
+    type: object
+  handler.ShowTipoResponse:
+    properties:
+      data:
+        type: integer
+      mensagem:
+        type: string
+    type: object
+  handler.UpdateTipoRequest:
+    properties:
+      descricao:
+        type: string
+    type: object
+  handler.UpdateTipoResponse:
+    properties:
+      data:
+        type: integer
+      mensagem:
+        type: string
+    type: object
+  schemas.TipoResponse:
+    properties:
+      createdAt:
+        type: string
+      deleteAt:
+        type: string
+      descricao:
+        type: string
+      id:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /tipo:
+    delete:
+      consumes:
+      - application/json
+      description: Delete tipo data in Db.
+      parameters:
+      - description: Tipo identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DeleteTipoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete tipo
+      tags:
+      - tipo
+    get:
+      consumes:
+      - application/json
+      description: Show a tipo.
+      parameters:
+      - description: Tipo identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ShowTipoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Show tipo
+      tags:
+      - tipo
+    post:
+      consumes:
+      - application/json
+      description: Save tipo data in Db.
+      parameters:
+      - description: Create body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateTipoRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreateTipoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create tipo
+      tags:
+      - tipo
+    put:
+      consumes:
+      - application/json
+      description: Update tipo data in Db.
+      parameters:
+      - description: Tipo identification
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Tipo data to Update body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handler.UpdateTipoRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.UpdateTipoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update tipo
+      tags:
+      - tipo
+  /tipos:
+    get:
+      consumes:
+      - application/json
+      description: List all tipo.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListTipoResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: List tipo
+      tags:
+      - tipo
+swagger: "2.0"
