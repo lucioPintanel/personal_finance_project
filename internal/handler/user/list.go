@@ -17,7 +17,7 @@ import (
 // @Produce		application/json
 // @Success		200 {object} handler.ListUsersResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/users [get]
+// @Router		/user [get]
 func ListUsersHandler(ctx *gin.Context) {
 	users := []schemas.User{}
 

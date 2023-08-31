@@ -16,13 +16,13 @@ import (
 // @Tags		user
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id query string true "User identification"
+// @Param		id path int true "User identification"
 // @Success		200 {object} handler.ShowUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Router		/user [get]
+// @Router		/user/{id} [get]
 func ShowUserHandler(ctx *gin.Context) {
-	id := ctx.Query("id")
+	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,
 			handler.ErrParamIsRequired("id",
