@@ -16,13 +16,13 @@ import (
 // @Tags		tipo_item
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id path int true "User identification"
+// @Param		id path int true "Tipo Item identification"
 // @Success		200 {object} handler.DeleteTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo_item/{id} [delete]
-func DeleteTipoHandler(ctx *gin.Context) {
+// @Router		/tipo_items/{id} [delete]
+func DeleteTipoItemHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,

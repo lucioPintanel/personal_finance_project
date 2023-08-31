@@ -16,14 +16,14 @@ import (
 // @Tags		tipo_item
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id path int true "User identification"
+// @Param		id path int true "Tipo Item identification"
 // @Param		request body handler.UpdateTipoItemRequest true "Tipo data to Update body"
 // @Success		200 {object} handler.UpdateTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo_item/{id} [put]
-func UpdateipoHandler(ctx *gin.Context) {
+// @Router		/tipo_items/{id} [put]
+func UpdateTipoItemHandler(ctx *gin.Context) {
 	request := handler.UpdateTipoItemRequest{}
 
 	ctx.BindJSON(&request)

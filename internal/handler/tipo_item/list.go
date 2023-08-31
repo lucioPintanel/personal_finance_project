@@ -17,8 +17,8 @@ import (
 // @Produce		application/json
 // @Success		200 {object} handler.ListTipoItemsResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo_item [get]
-func ListTiposHandler(ctx *gin.Context) {
+// @Router		/tipo_items [get]
+func ListTiposItemHandler(ctx *gin.Context) {
 	tipo_items := []schemas.TipoItem{}
 
 	if err := handler.Db.Find(&tipo_items).Error; err != nil {

@@ -8,7 +8,19 @@ import (
 	"github.com/lucioPintanel/personal_finance_project/internal/schemas"
 )
 
-func CreateTipoHandler(ctx *gin.Context) {
+// @BasePath  /api/v1
+
+// @Summary		Create tipo item
+// @Description	Save tipo data in Db.
+// @Tags		tipo_item
+// @Accept		application/json
+// @Produce		application/json
+// @Param		request body handler.CreateTipoRequest true "Create body"
+// @Success		200 {object} handler.CreateTipoResponse
+// @Failure		400 {object} handler.ErrorResponse
+// @Failure		500 {object} handler.ErrorResponse
+// @Router		/tipo_items [post]
+func CreateTipoItemHandler(ctx *gin.Context) {
 	request := handler.CreateTipoItemRequest{}
 
 	ctx.BindJSON(&request)
