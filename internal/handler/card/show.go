@@ -20,7 +20,7 @@ import (
 // @Success		200 {object} handler.ShowCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Router		/card/{id} [get]
+// @Router		/cards/{id} [get]
 func ShowCardHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {

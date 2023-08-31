@@ -19,7 +19,7 @@ import (
 // @Success		200 {object} handler.CreateCardRequest
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/card [post]
+// @Router		/cards [post]
 func CreateCardHandler(ctx *gin.Context) {
 	request := handler.CreateCardRequest{}
 

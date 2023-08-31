@@ -21,7 +21,7 @@ import (
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/card/{id} [delete]
+// @Router		/cards/{id} [delete]
 func DeleteCardHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
