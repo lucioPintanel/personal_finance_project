@@ -16,13 +16,13 @@ import (
 // @Tags		tipo_item
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id query string true "Tipo_Item identification"
+// @Param		id path int true "User identification"
 // @Success		200 {object} handler.ShowTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Router		/tipo_item [get]
 func ShowTipoItemHandler(ctx *gin.Context) {
-	id := ctx.Query("id")
+	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,
 			handler.ErrParamIsRequired("id",
