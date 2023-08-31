@@ -6,7 +6,7 @@ import (
 )
 
 func initializeRouterCard(g *gin.RouterGroup) {
-	c := g.Group("/card")
+	c := g.Group("/cards")
 	c.GET("/:id/*action", card.ShowCardHandler)
 	c.POST("/", card.CreateCardHandler)
 	c.PUT("/:id/*action", card.UpdateCardHandler)

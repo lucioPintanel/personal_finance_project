@@ -6,7 +6,7 @@ import (
 )
 
 func initializeRouterUser(g *gin.RouterGroup) {
-	u := g.Group("/user")
+	u := g.Group("/users")
 	u.GET("/:id/*action", user.ShowUserHandler)
 	u.POST("/", user.CreateUser1Handler)
 	u.PUT("/:id/*action", user.UpdateUserHandler)
