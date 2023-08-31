@@ -20,7 +20,7 @@ import (
 // @Success		200 {object} handler.ShowTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Router		/tipo/{id} [get]
+// @Router		/tipos/{id} [get]
 func ShowTipoHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {

@@ -19,7 +19,7 @@ import (
 // @Success		200 {object} handler.CreateTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo [post]
+// @Router		/tipos [post]
 func CreateTipoHandler(ctx *gin.Context) {
 	request := handler.CreateTipoRequest{}
 

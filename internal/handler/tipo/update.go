@@ -22,7 +22,7 @@ import (
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo/{id} [put]
+// @Router		/tipos/{id} [put]
 func UpdateipoHandler(ctx *gin.Context) {
 	request := handler.UpdateTipoRequest{}
 

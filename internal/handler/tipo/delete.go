@@ -21,7 +21,7 @@ import (
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo/{id} [delete]
+// @Router		/tipos/{id} [delete]
 func DeleteTipoHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
