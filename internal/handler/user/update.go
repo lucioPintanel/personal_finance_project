@@ -22,7 +22,7 @@ import (
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/user/{id} [put]
+// @Router		/users/{id} [put]
 func UpdateUserHandler(ctx *gin.Context) {
 	request := handler.UpdateUserRequest{}
 

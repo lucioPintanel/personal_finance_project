@@ -19,8 +19,8 @@ import (
 // @Success		200 {object} handler.CreateUserRequest
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/user [post]
-func CreateUser1Handler(ctx *gin.Context) {
+// @Router		/users [post]
+func CreateUserHandler(ctx *gin.Context) {
 	request := handler.CreateUserRequest{}
 
 	ctx.BindJSON(&request)

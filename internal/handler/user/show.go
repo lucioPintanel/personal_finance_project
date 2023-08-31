@@ -20,7 +20,7 @@ import (
 // @Success		200 {object} handler.ShowUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Router		/user/{id} [get]
+// @Router		/users/{id} [get]
 func ShowUserHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {

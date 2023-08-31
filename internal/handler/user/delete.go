@@ -21,7 +21,7 @@ import (
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/user/{id} [delete]
+// @Router		/users/{id} [delete]
 func DeleteUserHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {

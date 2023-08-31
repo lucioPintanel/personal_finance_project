@@ -17,8 +17,8 @@ import (
 // @Produce		application/json
 // @Success		200 {object} handler.ListUsersResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/user [get]
-func ListUsersHandler(ctx *gin.Context) {
+// @Router		/users [get]
+func ListUserHandler(ctx *gin.Context) {
 	users := []schemas.User{}
 
 	if err := handler.Db.Find(&users).Error; err != nil {
