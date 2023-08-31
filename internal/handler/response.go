@@ -2,7 +2,6 @@ package handler
 
 import (
 	"fmt"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lucioPintanel/personal_finance_project/internal/schemas"
@@ -117,17 +116,17 @@ type ListUsersResponse struct {
 	Data []schemas.UserResponse `json:"data"`
 }
 
-func SendError(ctx *gin.Context, code int, msg string) {
+func SendError(ctx *gin.Context, statusCode int, msg string) {
 	ctx.Header("Content-Type", "application/json")
-	ctx.JSON(code, gin.H{
+	ctx.JSON(statusCode, gin.H{
 		"mensagem":  msg,
-		"errorCode": code,
+		"errorCode": statusCode,
 	})
 }
 
-func SendSuccess(ctx *gin.Context, op string, data interface{}) {
+func SendSuccess(ctx *gin.Context, op string, statusCode int, data interface{}) {
 	ctx.Header("Content-Type", "application/json")
-	ctx.JSON(http.StatusOK, gin.H{
+	ctx.JSON(statusCode, gin.H{
 		"mensagem": fmt.Sprintf("operation from handler: %s successfull", op),
 		"data":     data,
 	})
