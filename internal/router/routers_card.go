@@ -6,9 +6,10 @@ import (
 )
 
 func initializeRouterCard(g *gin.RouterGroup) {
-	g.GET("/card", card.ShowCardHandler)
-	g.POST("/card", card.CreateCardHandler)
-	g.PUT("/card", card.UpdateCardHandler)
-	g.DELETE("/card", card.DeleteCardHandler)
-	g.GET("/cards", card.ListCardsHandler)
+	c := g.Group("/card")
+	c.GET("/:id/*action", card.ShowCardHandler)
+	c.POST("/", card.CreateCardHandler)
+	c.PUT("/:id/*action", card.UpdateCardHandler)
+	c.DELETE("/:id/*action", card.DeleteCardHandler)
+	c.GET("/", card.ListCardsHandler)
 }

@@ -16,13 +16,13 @@ import (
 // @Tags		card
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id query string true "Card identification"
+// @Param		id path int true "Card identification"
 // @Param		request body handler.UpdateCardRequest true "Card data to Update body"
 // @Success		200 {object} handler.UpdateCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/card [put]
+// @Router		/card/{id} [put]
 func UpdateCardHandler(ctx *gin.Context) {
 	request := handler.UpdateCardRequest{}
 
@@ -34,7 +34,7 @@ func UpdateCardHandler(ctx *gin.Context) {
 		return
 	}
 
-	id := ctx.Query("id")
+	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,
 			handler.ErrParamIsRequired("id",

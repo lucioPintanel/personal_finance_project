@@ -16,13 +16,13 @@ import (
 // @Tags		card
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id query string true "Card identification"
+// @Param		id path int true "Card identification"
 // @Success		200 {object} handler.ShowCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Router		/card [get]
+// @Router		/card/{id} [get]
 func ShowCardHandler(ctx *gin.Context) {
-	id := ctx.Query("id")
+	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,
 			handler.ErrParamIsRequired("id",
