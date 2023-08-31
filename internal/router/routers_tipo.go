@@ -6,9 +6,10 @@ import (
 )
 
 func initializeRouterTipo(g *gin.RouterGroup) {
-	g.GET("/tipo", tipo.ShowTipoHandler)
-	g.POST("/tipo", tipo.CreateTipoHandler)
-	g.PUT("/tipo", tipo.UpdateipoHandler)
-	g.DELETE("/tipo", tipo.DeleteTipoHandler)
-	g.GET("/tipos", tipo.ListTiposHandler)
+	tip := g.Group("/tipo")
+	tip.GET("/:id/*action", tipo.ShowTipoHandler)
+	tip.POST("/", tipo.CreateTipoHandler)
+	tip.PUT("/:id/*action", tipo.UpdateipoHandler)
+	tip.DELETE("/:id/*action", tipo.DeleteTipoHandler)
+	tip.GET("/", tipo.ListTiposHandler)
 }

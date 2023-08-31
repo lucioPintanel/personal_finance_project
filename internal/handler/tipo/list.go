@@ -17,7 +17,7 @@ import (
 // @Produce		application/json
 // @Success		200 {object} handler.ListTipoResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipos [get]
+// @Router		/tipo [get]
 func ListTiposHandler(ctx *gin.Context) {
 	tipos := []schemas.Tipo{}
 

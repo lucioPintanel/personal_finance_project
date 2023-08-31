@@ -16,13 +16,13 @@ import (
 // @Tags		tipo
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id query string true "Tipo identification"
+// @Param		id path int true "Tipo identification"
 // @Param		request body handler.UpdateTipoRequest true "Tipo data to Update body"
 // @Success		200 {object} handler.UpdateTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipo [put]
+// @Router		/tipo/{id} [put]
 func UpdateipoHandler(ctx *gin.Context) {
 	request := handler.UpdateTipoRequest{}
 
@@ -34,7 +34,7 @@ func UpdateipoHandler(ctx *gin.Context) {
 		return
 	}
 
-	id := ctx.Query("id")
+	id := ctx.Param("id")
 	if id == "" {
 		handler.SendError(ctx, http.StatusBadRequest,
 			handler.ErrParamIsRequired("id",
