@@ -16,9 +16,9 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateTipoRequest true "Create body"
-// @Success		200 {object} handler.CreateTipoResponse
+// @Success		201 {object} handler.CreateTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		422 {object} handler.ErrorResponse
 // @Router		/tipos [post]
 func CreateTipoHandler(ctx *gin.Context) {
 	request := handler.CreateTipoRequest{}
@@ -37,8 +37,8 @@ func CreateTipoHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Create(&tipo).Error; err != nil {
 		handler.Logger.Errorf("Error creating: %v", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "Error creating tipo on database")
+		handler.SendError(ctx, http.StatusUnprocessableEntity, "Error creating tipo on database")
 		return
 	}
-	handler.SendSuccess(ctx, "create-tipo", tipo.ID)
+	handler.SendSuccess(ctx, "create-tipo", http.StatusCreated, tipo.ID)
 }

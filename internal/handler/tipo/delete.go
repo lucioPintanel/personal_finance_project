@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Tipo identification"
-// @Success		200 {object} handler.DeleteTipoResponse
+// @Success		204 {object} handler.DeleteTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
@@ -45,5 +45,5 @@ func DeleteTipoHandler(ctx *gin.Context) {
 			fmt.Sprintf("error deleting tipo with id: [%s]", id))
 		return
 	}
-	handler.SendSuccess(ctx, "delete-tipo", tipo.ID)
+	handler.SendSuccess(ctx, "delete-tipo", http.StatusNoContent, tipo.ID)
 }

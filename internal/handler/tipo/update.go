@@ -57,8 +57,8 @@ func UpdateipoHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Save(&tipo).Error; err != nil {
 		handler.Logger.Errorf("error updating tipo: %s", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "error updating tipo")
+		handler.SendError(ctx, http.StatusConflict, "error updating tipo")
 		return
 	}
-	handler.SendSuccess(ctx, "update-tipo", tipo.ID)
+	handler.SendSuccess(ctx, "update-tipo", http.StatusOK, tipo.ID)
 }

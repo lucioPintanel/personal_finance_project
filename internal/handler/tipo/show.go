@@ -38,5 +38,5 @@ func ShowTipoHandler(ctx *gin.Context) {
 			fmt.Sprintf("tipo with id: [%s] not found", id))
 		return
 	}
-	handler.SendSuccess(ctx, "show-tipo", tipo)
+	handler.SendSuccess(ctx, "show-tipo", http.StatusOK, tipo)
 }
