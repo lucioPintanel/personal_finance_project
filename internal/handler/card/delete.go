@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Card identification"
-// @Success		200 {object} handler.DeleteCardResponse
+// @Success		204 {object} handler.DeleteCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
@@ -45,5 +45,5 @@ func DeleteCardHandler(ctx *gin.Context) {
 			fmt.Sprintf("error deleting card with id: [%s]", id))
 		return
 	}
-	handler.SendSuccess(ctx, "delete-card", card.ID)
+	handler.SendSuccess(ctx, "delete-card", http.StatusNoContent, card.ID)
 }

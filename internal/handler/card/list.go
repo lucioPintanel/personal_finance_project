@@ -26,5 +26,5 @@ func ListCardsHandler(ctx *gin.Context) {
 			"error listing card")
 		return
 	}
-	handler.SendSuccess(ctx, "list-card", cards)
+	handler.SendSuccess(ctx, "list-card", http.StatusOK, cards)
 }

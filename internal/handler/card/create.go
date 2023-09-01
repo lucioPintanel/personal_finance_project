@@ -16,9 +16,9 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateCardRequest true "Create body"
-// @Success		200 {object} handler.CreateCardRequest
+// @Success		201 {object} handler.CreateCardRequest
 // @Failure		400 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		422 {object} handler.ErrorResponse
 // @Router		/cards [post]
 func CreateCardHandler(ctx *gin.Context) {
 	request := handler.CreateCardRequest{}
@@ -39,8 +39,8 @@ func CreateCardHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Create(&card).Error; err != nil {
 		handler.Logger.Errorf("Error creating: %v", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "Error creating card on database")
+		handler.SendError(ctx, http.StatusUnprocessableEntity, "Error creating card on database")
 		return
 	}
-	handler.SendSuccess(ctx, "create-card", card.ID)
+	handler.SendSuccess(ctx, "create-card", http.StatusCreated, card.ID)
 }

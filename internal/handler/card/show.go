@@ -38,5 +38,5 @@ func ShowCardHandler(ctx *gin.Context) {
 			fmt.Sprintf("card with id: [%s] not found", id))
 		return
 	}
-	handler.SendSuccess(ctx, "show-card", card)
+	handler.SendSuccess(ctx, "show-card", http.StatusOK, card)
 }
