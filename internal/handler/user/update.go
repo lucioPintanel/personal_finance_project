@@ -17,14 +17,14 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "User identification"
-// @Param		request body handler.UpdateUserRequest true "User data to Update body"
+// @Param		request body updateUserRequest true "User data to Update body"
 // @Success		200 {object} updateUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		409 {object} handler.ErrorResponse
 // @Router		/users/{id} [put]
 func UpdateUserHandler(ctx *gin.Context) {
-	request := handler.UpdateUserRequest{}
+	request := updateUserRequest{}
 
 	ctx.BindJSON(&request)
 

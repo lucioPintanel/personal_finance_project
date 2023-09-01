@@ -17,18 +17,18 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Tipo identification"
-// @Param		request body handler.UpdateTipoRequest true "Tipo data to Update body"
+// @Param		request body updateTipoRequest true "Tipo data to Update body"
 // @Success		200 {object} updateTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
 // @Router		/tipos/{id} [put]
 func UpdateipoHandler(ctx *gin.Context) {
-	request := handler.UpdateTipoRequest{}
+	request := updateTipoRequest{}
 
 	ctx.BindJSON(&request)
 
-	if err := request.Validate(); err != nil {
+	if err := request.validate(); err != nil {
 		handler.Logger.Errorf("Validation error: %v", err.Error())
 		handler.SendError(ctx, http.StatusBadRequest, err.Error())
 		return

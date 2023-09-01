@@ -17,18 +17,18 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Card identification"
-// @Param		request body handler.UpdateCardRequest true "Card data to Update body"
+// @Param		request body updateCardRequest true "Card data to Update body"
 // @Success		200 {object} updateCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		409 {object} handler.ErrorResponse
 // @Router		/cards/{id} [put]
 func UpdateCardHandler(ctx *gin.Context) {
-	request := handler.UpdateCardRequest{}
+	request := updateCardRequest{}
 
 	ctx.BindJSON(&request)
 
-	if err := request.Validate(); err != nil {
+	if err := request.validate(); err != nil {
 		handler.Logger.Errorf("Validation error: %v", err.Error())
 		handler.SendError(ctx, http.StatusBadRequest, err.Error())
 		return

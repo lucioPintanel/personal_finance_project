@@ -15,13 +15,13 @@ import (
 // @Tags		tipo_item
 // @Accept		application/json
 // @Produce		application/json
-// @Param		request body handler.CreateTipoRequest true "Create body"
+// @Param		request body createTipoItemRequest true "Create body"
 // @Success		200 {object} createTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/tipo_items [post]
 func CreateTipoItemHandler(ctx *gin.Context) {
-	request := handler.CreateTipoItemRequest{}
+	request := createTipoItemRequest{}
 
 	ctx.BindJSON(&request)
 

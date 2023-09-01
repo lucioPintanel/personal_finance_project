@@ -15,17 +15,17 @@ import (
 // @Tags		tipo
 // @Accept		application/json
 // @Produce		application/json
-// @Param		request body handler.CreateTipoRequest true "Create body"
+// @Param		request body createTipoRequest true "Create body"
 // @Success		201 {object} createTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/tipos [post]
 func CreateTipoHandler(ctx *gin.Context) {
-	request := handler.CreateTipoRequest{}
+	request := createTipoRequest{}
 
 	ctx.BindJSON(&request)
 
-	if err := request.Validate(); err != nil {
+	if err := request.validate(); err != nil {
 		handler.Logger.Errorf("Validation error: %v", err.Error())
 		handler.SendError(ctx, http.StatusBadRequest, err.Error())
 		return

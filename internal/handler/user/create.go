@@ -15,13 +15,13 @@ import (
 // @Tags		user
 // @Accept		application/json
 // @Produce		application/json
-// @Param		request body handler.CreateUserRequest true "Create body"
+// @Param		request body createUserRequest true "Create body"
 // @Success		201 {object} createUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/users [post]
 func CreateUserHandler(ctx *gin.Context) {
-	request := handler.CreateUserRequest{}
+	request := createUserRequest{}
 
 	ctx.BindJSON(&request)
 

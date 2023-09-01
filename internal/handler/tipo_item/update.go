@@ -17,14 +17,14 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Tipo Item identification"
-// @Param		request body handler.UpdateTipoItemRequest true "Tipo data to Update body"
+// @Param		request body updateTipoItemRequest true "Tipo data to Update body"
 // @Success		200 {object} updateTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		409 {object} handler.ErrorResponse
 // @Router		/tipo_items/{id} [put]
 func UpdateTipoItemHandler(ctx *gin.Context) {
-	request := handler.UpdateTipoItemRequest{}
+	request := updateTipoItemRequest{}
 
 	ctx.BindJSON(&request)
 
