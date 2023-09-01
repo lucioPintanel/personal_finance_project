@@ -4,116 +4,15 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lucioPintanel/personal_finance_project/internal/schemas"
 )
 
-type baseResponse struct {
+type BaseResponse struct {
 	Mensagem string `json:"mensagem"`
 }
 
 type ErrorResponse struct {
-	baseResponse
+	BaseResponse
 	ErroCode int `json:"errorCode"`
-}
-
-type CreateTipoResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type DeleteTipoResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ShowTipoResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type UpdateTipoResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ListTipoResponse struct {
-	baseResponse
-	Data []schemas.TipoResponse `json:"data"`
-}
-
-type CreateTipoItemResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type DeleteTipoItemResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ShowTipoItemResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type UpdateTipoItemResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ListTipoItemsResponse struct {
-	baseResponse
-	Data []schemas.TipoItemResponse `json:"data"`
-}
-
-type CreateCardResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type DeleteCardResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ShowCardResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type UpdateCardResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ListCardsResponse struct {
-	baseResponse
-	Data []schemas.CardResponse `json:"data"`
-}
-
-type CreateUserResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type DeleteUserResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ShowUserResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type UpdateUserResponse struct {
-	baseResponse
-	Data int `json:"data"`
-}
-
-type ListUsersResponse struct {
-	baseResponse
-	Data []schemas.UserResponse `json:"data"`
 }
 
 func SendError(ctx *gin.Context, statusCode int, msg string) {
