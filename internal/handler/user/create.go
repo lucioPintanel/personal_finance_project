@@ -16,7 +16,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateUserRequest true "Create body"
-// @Success		201 {object} handler.CreateUserRequest
+// @Success		201 {object} createUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/users [post]

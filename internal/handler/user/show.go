@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "User identification"
-// @Success		200 {object} handler.ShowUserResponse
+// @Success		200 {object} showUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Router		/users/{id} [get]

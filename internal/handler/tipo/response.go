@@ -5,27 +5,27 @@ import (
 	"github.com/lucioPintanel/personal_finance_project/internal/schemas"
 )
 
-type CreateTipoResponse struct {
+type createTipoResponse struct {
 	handler.BaseResponse
 	Data int `json:"data"`
 }
 
-type DeleteTipoResponse struct {
+type deleteTipoResponse struct {
 	handler.BaseResponse
 	Data int `json:"data"`
 }
 
-type ShowTipoResponse struct {
+type showTipoResponse struct {
 	handler.BaseResponse
 	Data int `json:"data"`
 }
 
-type UpdateTipoResponse struct {
+type updateTipoResponse struct {
 	handler.BaseResponse
 	Data int `json:"data"`
 }
 
-type ListTipoResponse struct {
+type listTipoResponse struct {
 	handler.BaseResponse
 	Data []schemas.TipoResponse `json:"data"`
 }

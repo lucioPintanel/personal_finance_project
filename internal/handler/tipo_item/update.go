@@ -18,7 +18,7 @@ import (
 // @Produce		application/json
 // @Param		id path int true "Tipo Item identification"
 // @Param		request body handler.UpdateTipoItemRequest true "Tipo data to Update body"
-// @Success		200 {object} handler.UpdateTipoItemResponse
+// @Success		200 {object} updateTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		409 {object} handler.ErrorResponse

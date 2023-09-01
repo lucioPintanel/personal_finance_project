@@ -16,7 +16,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateTipoRequest true "Create body"
-// @Success		201 {object} handler.CreateTipoResponse
+// @Success		201 {object} createTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/tipos [post]

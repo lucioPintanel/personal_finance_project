@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Tipo Item identification"
-// @Success		204 {object} handler.DeleteTipoItemResponse
+// @Success		204 {object} deleteTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse

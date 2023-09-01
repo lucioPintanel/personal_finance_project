@@ -16,7 +16,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateCardRequest true "Create body"
-// @Success		201 {object} handler.CreateCardRequest
+// @Success		201 {object} createCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		422 {object} handler.ErrorResponse
 // @Router		/cards [post]

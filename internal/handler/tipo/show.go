@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Tipo identification"
-// @Success		200 {object} handler.ShowTipoResponse
+// @Success		200 {object} showTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Router		/tipos/{id} [get]

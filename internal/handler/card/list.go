@@ -15,7 +15,7 @@ import (
 // @Tags		card
 // @Accept		application/json
 // @Produce		application/json
-// @Success		200 {object} handler.ListCardsResponse
+// @Success		200 {object} listCardsResponse
 // @Failure		500 {object} handler.ErrorResponse
 // @Router		/cards [get]
 func ListCardsHandler(ctx *gin.Context) {

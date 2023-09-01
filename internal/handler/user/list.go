@@ -15,7 +15,7 @@ import (
 // @Tags		user
 // @Accept		application/json
 // @Produce		application/json
-// @Success		200 {object} handler.ListUsersResponse
+// @Success		200 {object} listUsersResponse
 // @Failure		500 {object} handler.ErrorResponse
 // @Router		/users [get]
 func ListUserHandler(ctx *gin.Context) {

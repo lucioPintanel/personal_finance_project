@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "Card identification"
-// @Success		200 {object} handler.ShowCardResponse
+// @Success		200 {object} showCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Router		/cards/{id} [get]

@@ -18,7 +18,7 @@ import (
 // @Produce		application/json
 // @Param		id path int true "User identification"
 // @Param		request body handler.UpdateUserRequest true "User data to Update body"
-// @Success		200 {object} handler.UpdateCardResponse
+// @Success		200 {object} updateUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		409 {object} handler.ErrorResponse
