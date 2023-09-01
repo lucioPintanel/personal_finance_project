@@ -26,5 +26,5 @@ func ListTiposItemHandler(ctx *gin.Context) {
 			"error listing tipo_item")
 		return
 	}
-	handler.SendSuccess(ctx, "list-tipo_item", tipo_items)
+	handler.SendSuccess(ctx, "list-tipo_item", http.StatusOK, tipo_items)
 }

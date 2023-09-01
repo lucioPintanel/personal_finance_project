@@ -18,7 +18,7 @@ import (
 // @Param		request body handler.CreateTipoRequest true "Create body"
 // @Success		200 {object} handler.CreateTipoResponse
 // @Failure		400 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		422 {object} handler.ErrorResponse
 // @Router		/tipo_items [post]
 func CreateTipoItemHandler(ctx *gin.Context) {
 	request := handler.CreateTipoItemRequest{}
@@ -40,8 +40,8 @@ func CreateTipoItemHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Create(&tipoItem).Error; err != nil {
 		handler.Logger.Errorf("Error creating: %v", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "Error creating tipo on database")
+		handler.SendError(ctx, http.StatusUnprocessableEntity, "Error creating tipo on database")
 		return
 	}
-	handler.SendSuccess(ctx, "create-tipo_item", tipoItem.ID)
+	handler.SendSuccess(ctx, "create-tipo_item", http.StatusCreated, tipoItem.ID)
 }

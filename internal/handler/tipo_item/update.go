@@ -21,7 +21,7 @@ import (
 // @Success		200 {object} handler.UpdateTipoItemResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		409 {object} handler.ErrorResponse
 // @Router		/tipo_items/{id} [put]
 func UpdateTipoItemHandler(ctx *gin.Context) {
 	request := handler.UpdateTipoItemRequest{}
@@ -57,8 +57,8 @@ func UpdateTipoItemHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Save(&tipo_item).Error; err != nil {
 		handler.Logger.Errorf("error updating tipo_item: %s", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "error updating tipo_item")
+		handler.SendError(ctx, http.StatusConflict, "error updating tipo_item")
 		return
 	}
-	handler.SendSuccess(ctx, "update-tipo_item", tipo_item.ID)
+	handler.SendSuccess(ctx, "update-tipo_item", http.StatusOK, tipo_item.ID)
 }

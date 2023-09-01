@@ -38,5 +38,5 @@ func ShowTipoItemHandler(ctx *gin.Context) {
 			fmt.Sprintf("tipo_item with id: [%s] not found", id))
 		return
 	}
-	handler.SendSuccess(ctx, "show-tipo_item", tipo_item)
+	handler.SendSuccess(ctx, "show-tipo_item", http.StatusOK, tipo_item)
 }
