@@ -21,7 +21,7 @@ import (
 // @Success		200 {object} handler.UpdateCardResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		409 {object} handler.ErrorResponse
 // @Router		/users/{id} [put]
 func UpdateUserHandler(ctx *gin.Context) {
 	request := handler.UpdateUserRequest{}
@@ -60,8 +60,8 @@ func UpdateUserHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Save(&user).Error; err != nil {
 		handler.Logger.Errorf("error updating user: %s", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "error updating user")
+		handler.SendError(ctx, http.StatusConflict, "error updating user")
 		return
 	}
-	handler.SendSuccess(ctx, "update-user", user.ID)
+	handler.SendSuccess(ctx, "update-user", http.StatusOK, user.ID)
 }

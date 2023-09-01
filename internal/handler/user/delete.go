@@ -17,7 +17,7 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		id path int true "User identification"
-// @Success		200 {object} handler.DeleteUserResponse
+// @Success		204 {object} handler.DeleteUserResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
@@ -45,5 +45,5 @@ func DeleteUserHandler(ctx *gin.Context) {
 			fmt.Sprintf("error deleting user with id: [%s]", id))
 		return
 	}
-	handler.SendSuccess(ctx, "delete-user", user.ID)
+	handler.SendSuccess(ctx, "delete-user", http.StatusNoContent, user.ID)
 }

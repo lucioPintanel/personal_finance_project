@@ -16,9 +16,9 @@ import (
 // @Accept		application/json
 // @Produce		application/json
 // @Param		request body handler.CreateUserRequest true "Create body"
-// @Success		200 {object} handler.CreateUserRequest
+// @Success		201 {object} handler.CreateUserRequest
 // @Failure		400 {object} handler.ErrorResponse
-// @Failure		500 {object} handler.ErrorResponse
+// @Failure		422 {object} handler.ErrorResponse
 // @Router		/users [post]
 func CreateUserHandler(ctx *gin.Context) {
 	request := handler.CreateUserRequest{}
@@ -39,8 +39,8 @@ func CreateUserHandler(ctx *gin.Context) {
 
 	if err := handler.Db.Create(&user).Error; err != nil {
 		handler.Logger.Errorf("Error creating: %v", err.Error())
-		handler.SendError(ctx, http.StatusInternalServerError, "Error creating user on database")
+		handler.SendError(ctx, http.StatusUnprocessableEntity, "Error creating user on database")
 		return
 	}
-	handler.SendSuccess(ctx, "create-user", user.ID)
+	handler.SendSuccess(ctx, "create-user", http.StatusCreated, user.ID)
 }

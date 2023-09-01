@@ -26,5 +26,5 @@ func ListUserHandler(ctx *gin.Context) {
 			"error listing user")
 		return
 	}
-	handler.SendSuccess(ctx, "list-user", users)
+	handler.SendSuccess(ctx, "list-user", http.StatusOK, users)
 }
