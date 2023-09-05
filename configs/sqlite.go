@@ -1,4 +1,4 @@
-package config
+package configs
 
 import (
 	"os"
@@ -10,11 +10,11 @@ import (
 
 func InitializeSQLite() (*gorm.DB, error) {
 	logger := GetLogger("sqlite")
-	dbPath := "./db/personal_finance.db"
+	dbPath := GetDbDir() + GetDbPath()
 	_, err := os.Stat(dbPath)
 	if os.IsNotExist(err) {
 		logger.Info("Database not found...creating")
-		err := os.MkdirAll("./db", os.ModePerm)
+		err := os.MkdirAll(GetDbDir(), os.ModePerm)
 		if err != nil {
 			return nil, err
 		}
