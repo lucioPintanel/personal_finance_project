@@ -1,0 +1,8 @@
+api:
+  port: 9088
+  apipath: /api
+  version: /v1
+
+database:
+  dbdir: ./db
+  dbfile: /personal_finance.db

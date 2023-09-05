@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lucioPintanel/personal_finance_project/configs"
 	"github.com/lucioPintanel/personal_finance_project/internal/handler"
 
 	docs "github.com/lucioPintanel/personal_finance_project/docs"
@@ -14,7 +15,8 @@ func Initialize() {
 	handler.InitializeHandler()
 
 	r := gin.Default()
-	basePath := "/api/v1"
+	//basePath := "/api/v1"
+	basePath := configs.GetServerApiPath() + configs.GetServerVersion()
 	docs.SwaggerInfo.BasePath = basePath
 	v1 := r.Group(basePath)
 
@@ -25,6 +27,6 @@ func Initialize() {
 	initializeRouterCard(v1)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
-
-	r.Run(":9090")
+	port := configs.GetServerPort()
+	r.Run(":" + port)
 }
