@@ -15,7 +15,6 @@ func Initialize() {
 	handler.InitializeHandler()
 
 	r := gin.Default()
-	//basePath := "/api/v1"
 	basePath := configs.GetServerApiPath() + configs.GetServerVersion()
 	docs.SwaggerInfo.BasePath = basePath
 	v1 := r.Group(basePath)
@@ -25,6 +24,7 @@ func Initialize() {
 	initializeRouterTipoItem(v1)
 	initializeRouterUser(v1)
 	initializeRouterCard(v1)
+	initializeRouterBankAccount(v1)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	port := configs.GetServerPort()

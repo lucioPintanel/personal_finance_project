@@ -35,6 +35,7 @@ func InitializeSQLite() (*gorm.DB, error) {
 		&schemas.TipoItem{},
 		&schemas.User{},
 		&schemas.Card{},
+		&schemas.BankAccount{},
 	)
 	if err != nil {
 		logger.Errorf("AutoMigrate erro: %v", err)
