@@ -32,9 +32,11 @@ func CreateCardHandler(ctx *gin.Context) {
 	}
 
 	card := schemas.Card{
-		Flag:   request.Flag,
-		Number: request.Number,
-		UserId: request.UserId,
+		FlagCard: request.FlagCard,
+		NumbCard: request.NumbCard,
+		IDUser:   request.IDUser,
+		Validity: request.Validity,
+		DueDate:  request.DueDate,
 	}
 
 	if err := handler.Db.Create(&card).Error; err != nil {

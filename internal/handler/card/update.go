@@ -51,14 +51,17 @@ func UpdateCardHandler(ctx *gin.Context) {
 		return
 	}
 
-	if request.Flag != "" {
-		card.Flag = request.Flag
+	if request.FlagCard != "" {
+		card.FlagCard = request.FlagCard
 	}
-	if request.Number != "" {
-		card.Number = request.Number
+	if request.NumbCard != "" {
+		card.NumbCard = request.NumbCard
 	}
-	if request.UserId > 0 {
-		card.UserId = request.UserId
+	if request.IDUser > 0 {
+		card.IDUser = request.IDUser
+	}
+	if request.DueDate > 0 {
+		card.DueDate = request.DueDate
 	}
 
 	if err := handler.Db.Save(&card).Error; err != nil {
