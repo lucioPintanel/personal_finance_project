@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - go build -o app cmd/api-server/main.go
+
+  lints:
+    cmds:
+      - golangci-lint run
+
+  docs:
+    cmds:
+      -  swag init -g cmd/api-server/main.go
+
+  run:
+    cmds:
+      - go run cmd/api-server/main.go
+
+  clean:
+    cmds:
+      - rm db/personal_finance.db
