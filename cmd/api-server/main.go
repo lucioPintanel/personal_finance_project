@@ -26,7 +26,7 @@ func main() {
 
 	// programatically set swagger info
 	docs.SwaggerInfo.Title = "API REST Personal Finance Project"
-	docs.SwaggerInfo.Description = "This is a sample server Petstore server."
+	docs.SwaggerInfo.Description = "Servidor de API Rest para controle pessol da finanças."
 	docs.SwaggerInfo.Version = "1.0"
 	docs.SwaggerInfo.Host = ""
 	docs.SwaggerInfo.BasePath = "/v1"
