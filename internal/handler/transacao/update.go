@@ -1,4 +1,4 @@
-package tipo
+package transacao
 
 import (
 	"fmt"
@@ -11,20 +11,20 @@ import (
 
 // @BasePath  /api/v1
 
-// @Summary		Update tipo
-// @Description	Update tipo data in Db.
-// @Tags		tipo
+// @Summary		Update transacao
+// @Description	Update transacao data in Db.
+// @Tags		transacao
 // @Accept		application/json
 // @Produce		application/json
-// @Param		id path int true "Tipo identification"
-// @Param		request body updateTipoRequest true "Tipo data to Update body"
-// @Success		200 {object} updateTipoResponse
+// @Param		id path int true "Transacao identification"
+// @Param		request body updateTransacaoRequest true "Transacao data to Update body"
+// @Success		200 {object} updateTransacaoResponse
 // @Failure		400 {object} handler.ErrorResponse
 // @Failure		404 {object} handler.ErrorResponse
 // @Failure		500 {object} handler.ErrorResponse
-// @Router		/tipos/{id} [put]
-func UpdateTipoHandler(ctx *gin.Context) {
-	request := updateTipoRequest{}
+// @Router		/transacaos/{id} [put]
+func UpdateTransacaoHandler(ctx *gin.Context) {
+	request := updateTransacaoRequest{}
 
 	ctx.BindJSON(&request)
 
@@ -43,22 +43,22 @@ func UpdateTipoHandler(ctx *gin.Context) {
 		return
 	}
 
-	tipo := schemas.Tipo{}
+	transacao := schemas.Transacao{}
 
-	if err := handler.Db.First(&tipo, id).Error; err != nil {
+	if err := handler.Db.First(&transacao, id).Error; err != nil {
 		handler.SendError(ctx, http.StatusNotFound,
-			fmt.Sprintf("tipo with id: [%s] not found", id))
+			fmt.Sprintf("transacao with id: [%s] not found", id))
 		return
 	}
 
 	if request.Descricao != "" {
-		tipo.Descricao = request.Descricao
+		transacao.Descricao = request.Descricao
 	}
 
-	if err := handler.Db.Save(&tipo).Error; err != nil {
-		handler.Logger.Errorf("error updating tipo: %s", err.Error())
-		handler.SendError(ctx, http.StatusConflict, "error updating tipo")
+	if err := handler.Db.Save(&transacao).Error; err != nil {
+		handler.Logger.Errorf("error updating transacao: %s", err.Error())
+		handler.SendError(ctx, http.StatusConflict, "error updating transacao")
 		return
 	}
-	handler.SendSuccess(ctx, "update-tipo", http.StatusOK, tipo.ID)
+	handler.SendSuccess(ctx, "update-transacao", http.StatusOK, transacao.ID)
 }

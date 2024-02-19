@@ -25,6 +25,7 @@ func Initialize() {
 	initializeRouterUser(v1)
 	initializeRouterCard(v1)
 	initializeRouterBankAccount(v1)
+	initializeRouterTransacao(v1)
 
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	port := configs.GetServerPort()
