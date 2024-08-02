@@ -10,11 +10,21 @@ Projeto para desenvolver conhecimentos de rest api usando go.
 2. Instale as dependências:
    task tidy
 
+## Documentação com Swagger
+
+Este projeto utiliza o Swagger para documentar a API. O Swagger é uma ferramenta que gera automaticamente documentação interativa para APIs RESTful.
+
+Para visualizar a documentação da API, siga estas etapas:
+
+1. Certifique-se de que o projeto esteja em execução.
+2. Abra um navegador e acesse: `http://localhost:8080/swagger/index.html`
+
+Lá, você encontrará detalhes sobre os endpoints, parâmetros, respostas e exemplos de uso da API.
 
 ## Tecnologias Utilizadas
 
-- Go
-- SQLite
+- Go (Golang)
+- Swagger
 
 ## Contribuição
 
